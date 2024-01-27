@@ -7,7 +7,7 @@ entity Student {
    @title: 'Name'
    name: String(40) @mandatory;
    @title:'GENDER'
-   gender:Association to Gender;
+   gender: String(1);
    @title: 'Email Address'
    email: String(40) @mandatory;
    @title: 'PAN number'
@@ -17,6 +17,7 @@ entity Student {
    @title: 'AGE'
    virtual age: Integer @Core.Computed
 }
+@cds.persistence.skip
 entity Gender {
     @title: 'code'
     key code: String(1);

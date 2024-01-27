@@ -16,12 +16,12 @@ function calcAge(d) {
 }
 module.exports = cds.service.impl(function () {
 
-    const { Student } = this.entities();
+    const { Student,Gender} = this.entities();
     this.on(['READ'], Student, async(req) => {
         results = await cds.run(req.query);
         if(Array.isArray(results)){
             results.forEach(element => {
-             element.age=calcAge(element.dob); 
+             element.age=calcAge(element.dob);
             });
         }else{
             results.age=calcAge(results.dob);
@@ -30,7 +30,7 @@ module.exports = cds.service.impl(function () {
         return results;
     });
 
-    this.before(['CREATE','UPDATE'], Student, async(req) => {
+    this.before(['CREATE'], Student, async(req) => {
         age = calcAge(req.data.dob);
         if (age<18 || age>45){
             req.error({'code': 'WRONGDOB',message:'Student not the right age for school:'+age, 'target':'dob'});
@@ -43,5 +43,23 @@ module.exports = cds.service.impl(function () {
         }
 
     });
-
+    this.before(['UPDATE'], Student, async(req) => {
+    
+        const { email, st_id } = req.data;
+        if (email) {
+            const query = SELECT.from(Student).where({ email: email }).and({ st_id: { '!=': st_id } });
+            const result = await cds.run(query);
+            if (result.length > 0) {
+                req.error({ code: 'STEMAILEXISTS', message: 'Student with such email already exists', target: 'email' });
+            }
+        }
+    });
+    this.on('READ',Gender,async()=>{
+        genders=[
+            {"code":"F","description":"female"},
+            {"code":"M","description":"male"}
+        ]
+        genders.$count=genders.length;
+        return genders;
+    })
 });
