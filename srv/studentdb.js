@@ -22,6 +22,14 @@ module.exports = cds.service.impl(function () {
         if(Array.isArray(results)){
             results.forEach(element => {
              element.age=calcAge(element.dob);
+             if(element.gender=='M') 
+             {
+                element.gender="Male"
+             }
+             if(element.gender=='F') 
+             {
+                element.gender="Female"
+             }
             });
         }else{
             results.age=calcAge(results.dob);
