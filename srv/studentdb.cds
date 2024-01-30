@@ -3,6 +3,13 @@ using {com.s.studentdb as db} from '../db/schema';
 service StudentDB {
     entity Gender  as projection on db.Gender;
     entity Student as projection on db.Student;
+    entity Courses as projection on db.Courses
+        {
+        @UI.Hidden: true
+        ID,
+        *
+    };
+    
 
 }
 
@@ -25,7 +32,18 @@ annotate StudentDB.Gender with @(UI.LineItem: [
         Value: description
     },
 ],
-    UI.SelectionFields:[code,description],
+);
+annotate StudentDB.Courses with @(UI.LineItem: [
+    {
+        //$Type: 'UI.DataField',-->no need of using type
+        Value: code
+    },
+    {
+        //$Type: 'UI.DataField',
+        Value: description
+    },
+],
+    //UI.SelectionFields:[code,description],
 );
 
 
@@ -43,6 +61,11 @@ annotate StudentDB.Student with @(
             $Type: 'UI.DataField',
             Label:'Gender',
             Value: gender
+        },
+        {
+            $Type: 'UI.DataField',
+            Label:'Course',
+            Value: course.code
         },
         {
             $Type: 'UI.DataField',
@@ -92,6 +115,11 @@ annotate StudentDB.Student with @(
                 Label:'Gender',
                 Value: gender
             },
+             {
+                $Type: 'UI.DataField',
+                Label:'Course',
+                Value: course_ID
+            },
             {
                 $Type: 'UI.DataField',
                 Value: pan
@@ -99,12 +127,9 @@ annotate StudentDB.Student with @(
             {
                 $Type: 'UI.DataField',
                 Value: dob
-            },
-            {
-                $Type: 'UI.DataField',
-                Value: age
-            },
-        ]
+            }
+        
+        ],
     },
     UI.Facets                        : [{
         $Type : 'UI.ReferenceFacet',
@@ -132,4 +157,54 @@ annotate StudentDB.Student with {
             }
         ]
     }
-)}
+);
+   course @(
+    Common.Text: course.description,
+    Common.ValueListWithFixedValues: true,
+    Common.TextArrangement: #TextOnly,
+    Common.ValueList: {
+        Label: 'Courses',
+        CollectionPath: 'Courses',
+        Parameters: [
+            {
+                $Type: 'Common.ValueListParameterInOut',
+                LocalDataProperty: 'course_ID',
+                ValueListProperty: 'ID'
+            },
+            {
+                $Type: 'Common.ValueListParameterDisplayOnly',
+                ValueListProperty: 'code'
+            },
+            {
+                $Type: 'Common.ValueListParameterDisplayOnly',
+                ValueListProperty: 'description'
+            }
+        ]
+    }
+)
+}
+
+// annotate StudentDB.Student with {
+//     course @(
+//     Common.ValueListWithFixedValues: true,
+//     Common.TextArrangement: #TextOnly,
+//     Common.ValueList: {
+//         Label: 'Courses',
+//         CollectionPath: 'Courses',
+//         Parameters: [
+//             {
+//                 $Type: 'Common.ValueListParameterInOut',
+//                 LocalDataProperty: 'course_ID',
+//                 ValueListProperty: 'ID'
+//             },
+//             {
+//                 $Type: 'Common.ValueListParameterDisplayOnly',
+//                 ValueListProperty: 'code'
+//             },
+//             {
+//                 $Type: 'Common.ValueListParameterDisplayOnly',
+//                 ValueListProperty: 'description'
+//             }
+//         ]
+//     }
+// )}
