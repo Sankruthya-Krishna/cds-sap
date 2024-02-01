@@ -56,15 +56,20 @@ annotate StudentDB.Courses with @(UI.LineItem: [
         //$Type: 'UI.DataField',
         Value: description
     },
+    // {
+    //     Label:'course Books',
+    //     Value: Books.book.description
+
+    // },
 ],
 UI.FieldGroup #CourseInformation:{
     $Type:'UI.FieldGroupType',
     Data:[
         {
-            Value:code
+            Value:code,
         },
         {
-            Value:description
+            Value:description,
         },
     ],
 },
@@ -79,7 +84,7 @@ UI.Facets:[
         $Type:'UI.ReferenceFacet',
         ID:'BooksInformationFacet',
         Label:'BooksInfo',
-        Target:'Books/@UI.LineItem'
+        Target:'Books/@UI.LineItem',
     },
 ],
 
@@ -101,9 +106,9 @@ annotate StudentDB.Books with @(
                 Value : code,
             },
             {
-                Value : description,
+                Value : description
             }
-        ],
+        ]
     },
         UI.Facets : [
         {
@@ -177,14 +182,15 @@ annotate StudentDB.Languages with @(
     },
 ],
 UI.FieldGroup #Languages: {
+    $Type:'UI.FieldGroupType',
     Data:[
     {
         Value: code,
     },
     {
-        Value:description
+        Value:description,
     }
-    ]
+    ],
 },
 UI.Facets :[
     {
@@ -357,7 +363,7 @@ annotate StudentDB.Student with {
         Parameters: [
             {
                 $Type: 'Common.ValueListParameterInOut',
-                LocalDataProperty: 'course_ID',
+                LocalDataProperty: course_ID,
                 ValueListProperty: 'ID'
             },
             {
