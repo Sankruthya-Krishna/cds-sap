@@ -21,6 +21,11 @@ entity Student: cuid, managed {
     pan:String(10) @mandatory;
     @title: 'Course'
     course: Association to Courses;
+    @title: 'Languages'
+    Languages: Composition of many{
+        key ID: UUID;
+        lang: Association to Languages;
+    }
     @title: 'Age'
     virtual age: Integer @Core.Computed;
 }
@@ -39,4 +44,22 @@ entity Courses : cuid, managed {
     code: String(3);
     @title: 'Description'
     description: String(50);
+    @title: 'Books'
+    Book: Composition of many{
+        key ID: UUID;
+        book: Association to Books;
+    }
+}
+entity Languages : cuid,managed {
+    @title: 'Code'
+    code: String(3);
+    @title: 'Description'
+    description: String(50);
+
+}
+entity Books : cuid,managed {
+    @title:'Code'
+    code:String(3);
+    @title:'Description'
+    description:String(50);
 }
