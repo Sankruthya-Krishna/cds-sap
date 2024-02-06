@@ -1,7 +1,7 @@
 {
   "_version": "1.59.0",
   "sap.app": {
-    "id": "studentinformation.student",
+    "id": "student",
     "type": "application",
     "i18n": "i18n/i18n.properties",
     "applicationVersion": {
@@ -13,7 +13,7 @@
     "sourceTemplate": {
       "id": "@sap/generator-fiori:lrop",
       "version": "1.12.2",
-      "toolsId": "511792ff-b9e7-4e49-a662-6f601de64b46"
+      "toolsId": "b6071177-e469-414b-9dde-fe3a78eb908c"
     },
     "dataSources": {
       "mainService": {
@@ -45,7 +45,7 @@
   "sap.ui5": {
     "flexEnabled": true,
     "dependencies": {
-      "minUI5Version": "1.120.4",
+      "minUI5Version": "1.120.6",
       "libs": {
         "sap.m": {},
         "sap.ui.core": {},
@@ -61,7 +61,7 @@
       "i18n": {
         "type": "sap.ui.model.resource.ResourceModel",
         "settings": {
-          "bundleName": "studentinformation.student.i18n.i18n"
+          "bundleName": "student.i18n.i18n"
         }
       },
       "": {
@@ -104,6 +104,7 @@
           "options": {
             "settings": {
               "initialLoad":"Enabled",
+             
               "contextPath": "/Student",
               "variantManagement": "Page",
               "navigation": {

@@ -29,6 +29,8 @@
   },
   "sapux": [
     "app/student",
+    "app/courses",
+    "app/student",
     "app/courses"
   ]
 }

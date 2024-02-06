@@ -243,6 +243,9 @@ annotate StudentDB.Student with @(
             $Type: 'UI.DataField',
             Value: age
         },
+        {
+            Value: is_alumni
+        }
     ],
     UI.SelectionFields: [
         st_id,

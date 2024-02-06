@@ -1,15 +1,15 @@
 sap.ui.require(
     [
         'sap/fe/test/JourneyRunner',
-        'studentinformation/student/test/integration/FirstJourney',
-		'studentinformation/student/test/integration/pages/StudentList',
-		'studentinformation/student/test/integration/pages/StudentObjectPage'
+        'student/test/integration/FirstJourney',
+		'student/test/integration/pages/StudentList',
+		'student/test/integration/pages/StudentObjectPage'
     ],
     function(JourneyRunner, opaJourney, StudentList, StudentObjectPage) {
         'use strict';
         var JourneyRunner = new JourneyRunner({
             // start index.html in web folder
-            launchUrl: sap.ui.require.toUrl('studentinformation/student') + '/index.html'
+            launchUrl: sap.ui.require.toUrl('student') + '/index.html'
         });
 
        

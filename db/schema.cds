@@ -28,6 +28,8 @@ entity Student: cuid, managed {
     }
     @title: 'Age'
     virtual age: Integer @Core.Computed;
+    @title:'Is Alumni'
+    is_alumni: Boolean default false;
 }
 
 @cds.persistence.skip
@@ -45,7 +47,7 @@ entity Courses : cuid, managed {
     @title: 'Description'
     description: String(50);
     @title: 'Books'
-    Book: Composition of many{
+    Books: Composition of many{
         key ID: UUID;
         book: Association to Books;
     }

@@ -1,7 +1,7 @@
 {
   "_version": "1.59.0",
   "sap.app": {
-    "id": "courseinformation.courses",
+    "id": "courses",
     "type": "application",
     "i18n": "i18n/i18n.properties",
     "applicationVersion": {
@@ -13,7 +13,7 @@
     "sourceTemplate": {
       "id": "@sap/generator-fiori:lrop",
       "version": "1.12.2",
-      "toolsId": "d99162c5-9cbd-4211-ba75-5065809be3a3"
+      "toolsId": "ee8f0a11-230e-40bb-bcd7-d7747f40e07b"
     },
     "dataSources": {
       "mainService": {
@@ -45,7 +45,7 @@
   "sap.ui5": {
     "flexEnabled": true,
     "dependencies": {
-      "minUI5Version": "1.120.4",
+      "minUI5Version": "1.120.6",
       "libs": {
         "sap.m": {},
         "sap.ui.core": {},
@@ -61,7 +61,7 @@
       "i18n": {
         "type": "sap.ui.model.resource.ResourceModel",
         "settings": {
-          "bundleName": "courseinformation.courses.i18n.i18n"
+          "bundleName": "courses.i18n.i18n"
         }
       },
       "": {

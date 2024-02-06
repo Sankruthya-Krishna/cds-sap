@@ -1,7 +1,7 @@
 ## Application Details
 |               |
 | ------------- |
-|**Generation Date and Time**<br>Tue Jan 30 2024 13:50:12 GMT+0530 (India Standard Time)|
+|**Generation Date and Time**<br>Mon Feb 05 2024 23:56:35 GMT+0530 (India Standard Time)|
 |**App Generator**<br>@sap/generator-fiori-elements|
 |**App Generator Version**<br>1.12.2|
 |**Generation Platform**<br>Visual Studio Code|
@@ -9,14 +9,15 @@
 |**Service Type**<br>Local Cap|
 |**Service URL**<br>http://localhost:4004/odata/v4/student-db/
 |**Module Name**<br>courses|
-|**Application Title**<br>course information|
-|**Namespace**<br>courseinformation|
+|**Application Title**<br>App Title|
+|**Namespace**<br>|
 |**UI5 Theme**<br>sap_horizon|
-|**UI5 Version**<br>1.120.4|
+|**UI5 Version**<br>1.120.6|
 |**Enable Code Assist Libraries**<br>False|
 |**Enable TypeScript**<br>False|
 |**Add Eslint configuration**<br>False|
 |**Main Entity**<br>Courses|
+|**Navigation Entity**<br>None|
 
 ## courses
 
